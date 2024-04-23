@@ -3,7 +3,7 @@ import {Signup} from "./pages/Signup";
 import {Signin} from "./pages/Signin";
 import {Dashboard} from "./pages/Dashboard";
 
-// import './App.css'
+
 
 function App() {
   

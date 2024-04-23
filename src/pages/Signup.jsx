@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { Heading } from '../components/Heading';
 import { Subheading } from '../components/Subheading';
 import { InputBox } from '../components/InputBox';
+import { ButtonComponent } from '../components/ButtonComponent';
+import { BottomWarning } from '../components/BottomWarning';
+import axios from 'axios';
 
 
 
@@ -53,6 +56,31 @@ export const Signup = () => {
                 placeholder={"password"}
                 type={"password"}
             />
+
+            <ButtonComponent
+                onClick={async ()=>{
+                    const response = await axios.post(
+                        "https://localhost:3000/api/v1/user/signup",
+                        {
+                            username ,
+                            password,
+                            firstName,
+                            lastName,
+                        }
+                    );
+                    localStorage.setItem("token" , response.data.token);
+                    navigate("/dashboard")
+                }}
+                text = {"Sign up"}
+            />
+
+            <BottomWarning 
+                label={"Alredy have an account?"}
+                buttonText={"Sign in"}
+                to={"/signin"}
+            />
+
+            
 
         </div>
         
