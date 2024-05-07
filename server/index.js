@@ -20,3 +20,6 @@ app.listen(PORT , ()=>{
     console.log(`Server is active on port : ${PORT}`);
 });
 
+const connectDb = require('./config/connect');
+connectDb();
+
