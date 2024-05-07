@@ -1,6 +1,15 @@
 const express = require('express');
 const app = express();
 
+const userRoute = require('./routes/user');
+
+require("dotenv").config;
+app.use(express.json());
+
+
+app.use("/api/v1" , userRoute);
+
+
 const PORT = 4000 || process.env.PORT;
 
 app.get("/" , (req , res)=>{
